@@ -1,0 +1,37 @@
+name: "Olm Add-on"
+version: "1.3.0"
+slug: "olm"
+description: "Runs Olm inside Home Assistant OS"
+icon: "icon.png"
+arch:
+  - amd64
+  - aarch64
+startup: system
+boot: auto
+host_network: true
+privileged:
+  - SYS_ADMIN
+  - NET_ADMIN
+  - NET_RAW
+  - DAC_READ_SEARCH
+devices:
+  - /dev/net/tun
+options:
+  PANGOLIN_ENDPOINT: "https://example.com"
+  OLM_ID: "your_olm_id"
+  OLM_SECRET: "your_olm_secret"
+  custom_env_vars: []
+schema:
+  PANGOLIN_ENDPOINT: "str"
+  OLM_ID: "str"
+  OLM_SECRET: "str"
+  custom_env_vars:
+    - "match(^[A-Z_][A-Z0-9_]*=.+$)"
+map:
+  - config:rw
+hassio_api: true
+homeassistant_api: true
+auth_api: true
+hassio_role: "admin"
+# Reference the changelog
+changelog: "https://raw.githubusercontent.com/StMond/home-assistant-olm-addon/main/CHANGELOG.md"

@@ -1,5 +1,5 @@
 # Use the official Home Assistant add-on base image
-FROM ghcr.io/hassio-addons/base:14.0.0
+FROM ghcr.io/hassio-addons/base:19.0.0
 
 # Define the Olm version (used everywhere below)
 ARG OLM_VERSION=1.3.0
@@ -14,10 +14,6 @@ RUN ARCH=$(uname -m) && \
         curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_amd64; \
     elif [ "$ARCH" = "aarch64" ]; then \
         curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_arm64; \
-    elif [ "$ARCH" = "armv7l" ]; then \
-        curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_arm32; \
-    elif [ "$ARCH" = "armv6l" ]; then \
-        curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_arm32v6; \
     elif [ "$ARCH" = "riscv64" ]; then \
         curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_riscv64; \
     else \

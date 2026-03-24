@@ -1,5 +1,8 @@
 # Changelog
 
+## 🔹 Version 1.4.4 - (2025-03-22)
+- Updated OLM to version 1.4.4
+
 ## 🔹 Version 1.4.2 - (2025-02-14)
 - Updated OLM to version 1.4.2
 

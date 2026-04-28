@@ -2,7 +2,7 @@
 FROM ghcr.io/hassio-addons/base:20.1.0
 
 # Define the Olm version (used everywhere below)
-ARG OLM_VERSION=1.4.4
+ARG OLM_VERSION=1.5.0
 ENV OLM_VERSION=${OLM_VERSION}
 
 # Install dependencies

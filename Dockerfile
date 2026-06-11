@@ -1,8 +1,8 @@
 # Use the official Home Assistant add-on base image
-FROM ghcr.io/hassio-addons/base:20.1.0
+FROM ghcr.io/hassio-addons/base:21.0.0
 
 # Define the Olm version (used everywhere below)
-ARG OLM_VERSION=1.5.0
+ARG OLM_VERSION=1.6.0
 ENV OLM_VERSION=${OLM_VERSION}
 
 # Install dependencies

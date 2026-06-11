@@ -1,15 +1,18 @@
 # Changelog
 
-## 🔹 Version 1.5.0 - (2025-04-28)
+## 🔹 Version 1.6.0 - (2026-06-11)
+- Updated OLM to version 1.6.0
+
+## 🔹 Version 1.5.0 - (2026-04-28)
 - Updated OLM to version 1.5.0
 
-## 🔹 Version 1.4.4 - (2025-03-22)
+## 🔹 Version 1.4.4 - (2026-03-22)
 - Updated OLM to version 1.4.4
 
-## 🔹 Version 1.4.2 - (2025-02-14)
+## 🔹 Version 1.4.2 - (2026-02-14)
 - Updated OLM to version 1.4.2
 
-## 🔹 Version 1.4.1 - (2025-02-02)
+## 🔹 Version 1.4.1 - (2026-02-02)
 - Updated OLM to version 1.4.1
 
 ## 🔹 Version 1.4.0 - (2026-01-23)

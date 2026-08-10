@@ -1,5 +1,8 @@
 # Changelog
 
+## 🔹 Version 1.8.2 - (2026-08-10)
+- Updated OLM to version 1.8.2
+
 ## 🔹 Version 1.8.1 - (2026-07-30)
 - Updated OLM to version 1.8.1
 

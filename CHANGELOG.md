@@ -1,5 +1,8 @@
 # Changelog
 
+## 🔹 Version 1.9.1 - (2026-09-02)
+- Updated OLM to version 1.9.0
+
 ## 🔹 Version 1.9.0 - (2026-08-25)
 - Updated OLM to version 1.9.0
 

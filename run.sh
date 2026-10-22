@@ -51,7 +51,7 @@ while true; do
     export PANGOLIN_ENDPOINT="$PANGOLIN_ENDPOINT"
     export CLIENT_ID="$CLIENT_ID"
     export CLIENT_SECRET="$CLIENT_SECRET"
-    /usr/bin/pangolin up --attach
+    /usr/bin/pangolin up client --interface-name olm --attach
 
     echo "⚠️ Pangolin-cli stopped! Waiting 5 second before reconnecting..."
     sleep 5

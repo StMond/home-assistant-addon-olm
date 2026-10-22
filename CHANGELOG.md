@@ -1,7 +1,7 @@
 # Changelog
 
-## 🔹 Version 1.19.0 - (22.10.2026)
-- Updated pangolin-cli version to 1.19.0
+## 🔹 Version 0.19.0 - (22.10.2026)
+- Updated pangolin-cli version to 0.19.0
 
 ## 🔹 Version 1.10.1 - (2026-10-04)
 - Updated OLM to version 1.10.1

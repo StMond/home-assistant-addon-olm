@@ -1,7 +1,7 @@
 name: "Olm Add-on"
-version: "1.10.1"
+version: "1.19.0"
 slug: "olm"
-description: "Runs Olm inside Home Assistant OS"
+description: "Runs Olm (pangolin-cli) inside Home Assistant OS"
 icon: "icon.png"
 arch:
   - amd64

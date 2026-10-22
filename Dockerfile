@@ -1,25 +1,25 @@
 # Use the official Home Assistant add-on base image
-FROM ghcr.io/hassio-addons/base:21.0.7
+FROM ghcr.io/hassio-addons/base:21.0.9
 
-# Define the Olm version (used everywhere below)
-ARG OLM_VERSION=1.10.1
-ENV OLM_VERSION=${OLM_VERSION}
+# Define the Pangolin version (used everywhere below)
+ARG PANGOLIN_VERSION=1.19.0
+ENV PANGOLIN_VERSION=${PANGOLIN_VERSION}
 
 # Install dependencies
 RUN apk add --no-cache bash curl jq
 
-# Detect system architecture and download the correct Olm binary
+# Detect system architecture and download the correct Pangolin binary
 RUN ARCH=$(uname -m) && \
     if [ "$ARCH" = "x86_64" ]; then \
-        curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_amd64; \
+        curl -fsSL -o /usr/bin/pangolin https://github.com/fosrl/cli/releases/download/${PANGOLIN_VERSION}/pangolin-cli_linux_amd64; \
     elif [ "$ARCH" = "aarch64" ]; then \
-        curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_arm64; \
+        curl -fsSL -o /usr/bin/pangolin https://github.com/fosrl/cli/releases/download/${PANGOLIN_VERSION}/pangolin-cli_linux_arm64; \
     elif [ "$ARCH" = "riscv64" ]; then \
-        curl -fsSL -o /usr/bin/olm https://github.com/fosrl/olm/releases/download/${OLM_VERSION}/olm_linux_riscv64; \
+        curl -fsSL -o /usr/bin/pangolin https://github.com/fosrl/cli/releases/download/${PANGOLIN_VERSION}/pangolin-cli_linux_riscv64; \
     else \
         echo "❌ ERROR: Unsupported architecture: $ARCH"; exit 1; \
     fi && \
-    chmod +x /usr/bin/olm
+    chmod +x /usr/bin/pangolin
 
 
 # Copy the script into the container

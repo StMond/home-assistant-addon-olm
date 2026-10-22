@@ -11,39 +11,22 @@ if [[ ! -f "$CONFIG_PATH" ]]; then
 fi
 
 PANGOLIN_ENDPOINT=$(jq -r '.PANGOLIN_ENDPOINT' "$CONFIG_PATH")
-OLM_ID=$(jq -r '.OLM_ID' "$CONFIG_PATH")
-OLM_SECRET=$(jq -r '.OLM_SECRET' "$CONFIG_PATH")
+CLIENT_ID=$(jq -r '.OLM_ID' "$CONFIG_PATH")
+CLIENT_SECRET=$(jq -r '.OLM_SECRET' "$CONFIG_PATH")
 
 # Read custom environment variables
 CUSTOM_ENV_VARS=$(jq -r '.custom_env_vars // [] | .[]' "$CONFIG_PATH")
 
-
-
-if [ -z "$PANGOLIN_ENDPOINT" ]; then
-    echo "❌ ERROR: Missing required endpoint reference values!"
-fi
-
-if [    -z "$OLM_ID"  ]; then
-    echo "❌ ERROR: Missing required ID configuration values!"
-fi
-
-if [    -z "$OLM_SECRET"   ]; then
-    echo "❌ ERROR: Missing required Secret configuration values!"
-fi
-
-if [    "$PANGOLIN_ENDPOINT" == null    ]; then
-    echo "❌ ERROR: Missing required endpoint configuration values!"
-fi
-
-if [[ -z "$PANGOLIN_ENDPOINT" || -z "$OLM_ID" || -z "$OLM_SECRET" || "$PANGOLIN_ENDPOINT" == "null" ]]; then
+if [[ -z "$PANGOLIN_ENDPOINT" || -z "$CLIENT_ID" || -z "$CLIENT_SECRET" || "$PANGOLIN_ENDPOINT" == "null" ]]; then
     echo "❌ ERROR: Missing required configuration values!"
     exit 1
 fi
 
 echo "✅ Configuration Loaded:"
 echo "  PANGOLIN_ENDPOINT=$PANGOLIN_ENDPOINT"
-echo "  OLM_ID=$OLM_ID"
-echo "  OLM_SECRET=$OLM_SECRET"
+echo "  CLIENT_ID=$CLIENT_ID"
+echo "  CLIENT_SECRET=${CLIENT_SECRET:0:4}*****${CLIENT_SECRET: -4}"
+
 
 # Process and display custom environment variables
 EXTRA_ENV=""
@@ -63,13 +46,13 @@ fi
 
 # 🔁 Auto-reconnect loop
 while true; do
-    echo "🔹 Starting Olm..."
+    echo "🔹 Starting Pangolin-cli..."
     # Custom variables are already exported above
     export PANGOLIN_ENDPOINT="$PANGOLIN_ENDPOINT"
-    export OLM_ID="$OLM_ID"
-    export OLM_SECRET="$OLM_SECRET"
-    /usr/bin/olm
+    export CLIENT_ID="$CLIENT_ID"
+    export CLIENT_SECRET="$CLIENT_SECRET"
+    /usr/bin/pangolin up --attach
 
-    echo "⚠️ Olm stopped! Waiting 5 second before reconnecting..."
+    echo "⚠️ Pangolin-cli stopped! Waiting 5 second before reconnecting..."
     sleep 5
 done

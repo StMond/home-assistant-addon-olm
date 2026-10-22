@@ -48,10 +48,7 @@ fi
 while true; do
     echo "🔹 Starting Pangolin-cli..."
     # Custom variables are already exported above
-    export PANGOLIN_ENDPOINT="$PANGOLIN_ENDPOINT"
-    export CLIENT_ID="$CLIENT_ID"
-    export CLIENT_SECRET="$CLIENT_SECRET"
-    /usr/bin/pangolin up client --interface-name olm --attach
+    /usr/bin/pangolin up client --endpoint "$PANGOLIN_ENDPOINT" --id "$CLIENT_ID" --secret "$CLIENT_SECRET" --interface-name olm --attach
 
     echo "⚠️ Pangolin-cli stopped! Waiting 5 second before reconnecting..."
     sleep 5
